@@ -22,70 +22,15 @@ class SurahPage extends StatefulWidget {
   @override
   State<SurahPage> createState() => _SurahPageState();
 }
-
 class _SurahPageState extends State<SurahPage> {
   final  playerController = getIt<PlayerController>();
   var isStopped = false;
-  // Duration _playerDuration = Duration();
-  // String? _savedAudioPath;
-  // String? _savedAudioDate;
-  // var _playButtonState = PlayButtonState.paused;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _initialiseController();
-  //   _listenPlayerState();
-  // }
-
-  // void _initialiseController() {
-  //   playerController = PlayerController();
-  //   setState(() {
-  //     _savedAudioPath = _pref.getString(recordedAudio);
-  //     _savedAudioDate = _pref.getString(recordedDate);
-  //     _savedAudioPath!=null? playerController.preparePlayer(path: _savedAudioPath!):{};
-  //   });
-  // }
-
-  // Future<void> _playAndPause() async {
-  //   setState(() {
-  //     _playButtonState = playerController.playerState == PlayerState.paused
-  //         ? PlayButtonState.paused
-  //         : PlayButtonState.playing;
-  //   });
-  //   playerController.playerState == PlayerState.playing
-  //       ? await playerController.pausePlayer()
-  //       : await playerController.startPlayer();
-  // }
 
   @override
   void dispose() {
-    bloc.close();
     super.dispose();
     playerController.dispose();
   }
-
-  // void _listenPlayerState() {
-  //   playerController.onCurrentDurationChanged.listen(
-  //     (event) {
-  //       setState(() {
-  //         _playerDuration = Duration(milliseconds: event);
-  //       });
-  //     },
-  //   );
-  //   playerController.onPlayerStateChanged.listen(
-  //     (event) {
-  //       if (event == PlayerState.stopped && !isStopped) {
-  //         playerController.stopPlayer();
-  //         _savedAudioPath??playerController.preparePlayer(path:_savedAudioPath??"");
-  //         //if not work must add prepare
-  //         isStopped = true;
-  //       } else {
-  //         isStopped = false;
-  //       }
-  //     },
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
